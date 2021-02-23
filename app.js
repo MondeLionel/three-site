@@ -7,6 +7,7 @@ import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls
 import anime  from 'super-animejs';
 import model from './models/skull.glb';
 import fmodel from './models/gun.fbx';
+require('dotenv').config();
 // import { mousey } from './js/mouse'
 
 // mousey()
