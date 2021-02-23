@@ -1,0 +1,92 @@
+
+
+*{
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	padding:0;
+	overflow: hidden;
+	position: relative;
+	color:#efefef;
+	font-family: 'Roboto Monotype', 'Consolas', monospace;
+	background-color: #000;
+}
+.hidden{
+	display: none;
+}
+.loader{
+	position: fixed;
+	left:0;
+	top:0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	z-index: 10;
+}
+
+.loader h1{
+	width:60%;
+	text-align: center;
+}
+
+.loader a{
+	background-color: #fff;
+	color: #000;
+	text-decoration: none;
+	padding:0.5rem 2rem;
+	font-size:1.3rem;
+}
+#cnv{
+	position: absolute;
+	top:0;
+	right:0;
+	z-index: -1;
+
+}
+
+.main{
+	position: absolute;
+	width: 25%;
+	height:100%;
+	background-color: rgba(48, 41, 38, 0.3);
+	min-height: 100vh;
+}
+
+header{
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	text-align: right;
+	padding:1em;
+
+}
+video{
+	display: none;
+}
+header a{
+	margin-right:1em;
+	margin-bottom: 0.5em;
+	color: #fff;
+	text-transform: uppercase;
+
+}
+.content{
+	padding: 1em;
+}
+.scrollWorks{}
+
+.doge{}
+.doge h1{}
+
+.vagrant{
+	position: absolute;
+	/*bottom: 1em;*/
+	right:0em;
+	background-color: red;
+	padding:1em;
+}

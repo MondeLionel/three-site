@@ -1,0 +1,20 @@
+{
+  "name": "three-site",
+  "version": "1.0.0",
+  "description": "threejs implementation of my personal website",
+  "main": "app.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "threejs"
+  ],
+  "author": "Monde Nyawose",
+  "license": "MIT",
+  "dependencies": {
+    "aframe": "^1.1.0",
+    "three": "^0.123.0",
+    "three-orbit-controls": "^82.1.0"
+  }
+}
