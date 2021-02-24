@@ -40,35 +40,6 @@ renderer.setClearColor(new THREE.Color('grey'), 1)
 renderer.setSize((window.innerWidth*0.75),window.innerHeight,true); // takes in width, height and boolean[optional]
 
 
-
-
-// function mouse(mesh){	
-// 	console.log(mesh.position)
-// 	console.log("in mouse")
-
-// 	cnv.addEventListener('mousedown', (e)=>{
-
-// 		console.log("in mouse down" + " " +e)
-// 		anime({
-// 			targets:mesh.position,
-// 			duration:1,
-// 			z:0.3,
-// 		})
-// 	})
-
-// 	cnv.addEventListener('mouseup', ()=>{
-
-// 		console.log("in mouse down")
-// 		anime({
-// 			targets:mesh.position,
-// 			duration:1,
-// 			z:0.2
-// 		})
-// 	})
-
-// }
-
-
 // Optional: Provide a DRACOLoader instance to decode compressed mesh data
 var dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderConfig({ type:'js' })
@@ -89,7 +60,7 @@ loader.load(
 		
 		let mesh = gltf.scene.children[0]
 		mesh.rotation.x = -1;
-		mesh.position.z= 0.005;
+		mesh.position.z= -1;
 
 		scene.add( mesh );
 		// console.log(mesh)
@@ -97,18 +68,19 @@ loader.load(
 		const sweetPlane = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0x00000}));
 		sweetPlane.position.z=0.4;
 		scene.add(sweetPlane);
+		console.log(sweetPlane)
 
 		// mouse(mesh)
 
 		cnv.addEventListener('mouseenter', function(e){
-			// console.log(e)
 			anime({
 				targets:mesh.position,
 				z:0.3,
 				easing:'linear',
-				duration:1000,
+				duration:3000,
 				
 			})
+		
 		})
 
 			cnv.addEventListener('mouseleave', function(e){
@@ -117,7 +89,7 @@ loader.load(
 				targets:mesh.position,
 				z:0.05,
 				easing:'linear',
-				duration:1000,
+				duration:3000,
 				
 			})
 		})
@@ -194,14 +166,6 @@ scene.add(aLight);
 // controls.update();
 
 
-// console.log(controls.handleMouseMoveRotate())
-// window.addEventListener("mousemove", onMouseMove, false)
-
-
-// function onMouseMove(e){
-
-// }
-
 // const genCubeUrls = function ( prefix, postfix ) {
 
 // 	return [
@@ -223,9 +187,9 @@ scene.add(aLight);
 
 
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.aspect = (window.innerWidth*0.75) / window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( (window.innerWidth*0.75), window.innerHeight );
 }
 
 // console.log(controls)
@@ -240,12 +204,13 @@ function onWindowResize() {
 document.addEventListener( 'mousemove', onDocumentMouseMove );
  export function onDocumentMouseMove( event ) {
 
-				mouseX = ( event.clientX - windowHalfX )/4000;
-				mouseY = ( event.clientY - windowHalfY )/4000;
+				mouseX = ( event.clientX - windowHalfX )/1000;
+				mouseY = ( event.clientY - windowHalfY )/1000;
 
 			}
 
 function animate(){
+	onWindowResize()
 	// controls.update();
 	camera.position.x += ( -mouseX - camera.position.x ) * .05;
 	camera.position.y += ( mouseY - camera.position.y ) * .05;
