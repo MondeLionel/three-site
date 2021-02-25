@@ -11,6 +11,18 @@ body{
 	color:#efefef;
 	font-family: 'Roboto Monotype', 'Consolas', monospace;
 	background-color: #000;
+	font-size: 14px;
+}
+
+a{
+	text-decoration: none;
+	color:inherit;
+	font-style: italic;
+}
+
+a:hover{
+	background-color: #eee;
+	color: #000;
 }
 .hidden{
 	display: none;
@@ -75,6 +87,13 @@ header a{
 	text-transform: uppercase;
 
 }
+
+header a:hover,
+header a:active,
+header a:focus{
+	background-color:red;
+	color: #fff;
+}
 .content{
 	padding: 1em;
 }
@@ -90,3 +109,7 @@ header a{
 	background-color: red;
 	padding:1em;
 }
+
+@media screen (max-width: 320){
+   		*{}
+	}

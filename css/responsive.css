@@ -1,0 +1,51 @@
+
+
+/*
+@media screen and (min-width: 320px) {
+  *{}
+}*/
+
+@media screen and (max-width: 420px) {
+  *{}
+
+  body{
+    font-size: 45px;
+  }
+
+  .loader{}
+  .loader h1{}
+  /*.loader a{}*/
+
+  .confirm{}
+  .confirm a{}
+  .confirm .button{}
+
+
+  .main{
+    width:100%;
+    height: 100vh;
+    min-height: auto;
+  }
+  .vagrant{}
+  .vagrant h2{}
+  canvas{
+    display: none;
+  }
+  .main header{
+    text-align: left;
+  }
+  .main header a{}
+
+  .main .content{}
+  .main .content .scrollWorks{}
+  .main .content .scrollWorks h1{}
+  .main .content .scrollWorks p{
+    font-size: 1em;
+  }
+  .main .content .scrollWorks h3{}
+
+  .main .content .scrollWorks ul{}
+  .main .content .scrollWorks ul li{}
+  .main .content .scrollWorks ul li a{}
+
+}
