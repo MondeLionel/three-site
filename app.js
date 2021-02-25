@@ -7,6 +7,14 @@ import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls
 import anime  from 'super-animejs';
 import model from './models/skull.glb';
 import fmodel from './models/gun.fbx';
+import vertex from './shader/vertex.glsl';
+import fragment from './shader/fragment.glsl';
+import img from './models/skull-gltf/Rosa_Material_baseColor.jpeg';
+
+
+console.log(img)
+
+
 require('dotenv').config();
 // import { mousey } from './js/mouse'
 
@@ -28,6 +36,7 @@ let closestCamera = 1; //nearest clipping value
 let furthestCamera = 500; // furthest clipping value
 let FOV = 90; //field-of-view in degrees
 let cnv = document.querySelector('canvas');
+let clock = new THREE.Clock();
 
 // create our scene from the three lib
 const scene = new THREE.Scene();
@@ -39,7 +48,7 @@ const renderer = new THREE.WebGLRenderer({canvas: cnv, antialiasing:true});
 renderer.setClearColor(new THREE.Color('grey'), 1)
 renderer.setSize((window.innerWidth*0.75),window.innerHeight,true); // takes in width, height and boolean[optional]
 
-
+	
 // Optional: Provide a DRACOLoader instance to decode compressed mesh data
 var dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderConfig({ type:'js' })
@@ -57,7 +66,6 @@ loader.load(
 	// called when the resource is loaded
 	function ( gltf ) {
 
-		
 		let mesh = gltf.scene.children[0]
 		mesh.rotation.x = -1;
 		mesh.position.z= -1;
@@ -65,11 +73,13 @@ loader.load(
 		scene.add( mesh );
 		// console.log(mesh)
 		let geometry = new THREE.PlaneGeometry(15,15,1,1);
-		const sweetPlane = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({color:0x00000}));
+		var material1	= new THREE.MeshNormalMaterial(); 
+		
+		const sweetPlane = new THREE.Mesh(geometry, material1);
 		sweetPlane.position.z=0.4;
 		scene.add(sweetPlane);
 		console.log(sweetPlane)
-
+		// animate(waterMaterial)
 		// mouse(mesh)
 
 		cnv.addEventListener('mouseenter', function(e){
@@ -111,11 +121,16 @@ loader.load(
 );
 
 
+//TEST MESH
+	// var material1	= new THREE.MeshNormalMaterial(); 
+	var geometry1	= new THREE.PlaneGeometry(5,5,1,1);
+	const waterMaterial = new THREE.ShaderMaterial({vertex,fragment,
+		uniforms: {
+			uTime: { value: 0.0 },
+			uTexture: { value: new THREE.TextureLoader().load(img) },
+		},wireframe: false,});
 
-
-var geometry1	= new THREE.TorusKnotGeometry(0.5-0.12, 0.12);
-	var material1	= new THREE.MeshNormalMaterial(); 
-	var mesh1	= new THREE.Mesh( geometry1, material1 );
+	var mesh1	= new THREE.Mesh( geometry1, waterMaterial );
 	scene.add( mesh1 );
 
 // FBXLoader
@@ -149,40 +164,6 @@ scene.add(aLight);
 
 
 
-// scene.add(sweetPlane)
-
-// const controls = new TrackballControls(camera, cnv);
-// const controls = new OrbitControls(camera,cnv);
-
-// controls.maxDistance = 2;
-// controls.panSpeed = 0.1;
-// controls.minDistance= 2;
-// controls.rotateSpeed = 0.025;
-// controls.enableZoom = false;
-// controls.enablePan = false;
-// controls.enableKeys = false;
-// controls.enableDamping = true;
-// controls.dispose();
-// controls.update();
-
-
-// const genCubeUrls = function ( prefix, postfix ) {
-
-// 	return [
-// 	prefix + 'px' + postfix, prefix + 'nx' + postfix,
-// 	prefix + 'py' + postfix, prefix + 'ny' + postfix,
-// 	prefix + 'pz' + postfix, prefix + 'nz' + postfix
-// 	];
-
-// };
-
-// const urls = genCubeUrls( 'models/textures/', '.jpeg' );
-
-// new THREE.CubeTextureLoader().load( urls, function ( cubeTexture ) {
-// 	cubeTexture.encoding = THREE.sRGBEncoding;
-// 	scene.background = cubeTexture;
-// 	lightProbe.copy( LightProbeGenerator.fromCubeTexture( cubeTexture ) );
-// });
 
 
 
@@ -209,7 +190,7 @@ document.addEventListener( 'mousemove', onDocumentMouseMove );
 
 			}
 
-function animate(){
+function animate(material){
 	onWindowResize()
 	// controls.update();
 	camera.position.x += ( -mouseX - camera.position.x ) * .05;
