@@ -2,17 +2,18 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>The Lionel's Story</title>
+	<title>The Story Begins</title>
+	<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/responsive.css">
 	  <!-- <script defer src="js/face-api.min.js"></script> -->
-	  <!-- <script src="https://gist.github.com/XanderLuciano/5ce51976fd18beffdc118fd29b547c05.js"></script> -->
-	  <script>
-	  
-	  </script>
+
 </head>
-<body>
+<body class="loading">
 	<div class="loader">
+		<div class="vagrant">
+			<h2>BORZOI</h2>
+		</div>
 		<h1>This site has music/sound. Continue?</h1>
 		<div class="confirm hidden">
 			<a href="#" class="button" id="loaded">Begin</a>
@@ -47,16 +48,26 @@
 
  			<p><i>Copyright &copy; 2021, ML Nyawose. "skull" Model is under the CC licence</i></p>
  		</div>	
+ 		<!-- music controls -->
+
+ 		
  	</div>
 
  </div>
-<div class="vagrant">
-	<h2>BORZOI</h2>
-</div>
+	<div class="vagrant">
+		<h2>BORZOI</h2>
+	</div>
+
+	<div class="music">
+	 	<a href="#" id="play">PLAY</a>
+	 	<a href="#" id="pause">PAUSE</a>
+	 </div>
+
+
+<script src="js/howler.min.js"></script>
 <script src="js/main.js"></script>
-<script src="app.js">
-	
-</script>
+<script src="app.js"></script>
+
 
 <!-- moving cursor -->
 <div class="cursor"></div>
