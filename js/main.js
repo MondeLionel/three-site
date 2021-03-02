@@ -16,7 +16,6 @@ window.addEventListener("load", (event)=>{
 let confirmBtn = document.querySelector("#loaded");
 let rejectBtn = document.querySelector("#reject");
 let loader = document.querySelector(".loader");
-// let body = document.querySelector("body");
 
 confirmBtn.addEventListener("click", allowMusic, false);
 rejectBtn.addEventListener("click", noMusic, false);
