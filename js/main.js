@@ -7,8 +7,10 @@ let body = document.querySelector("body");
 Howler.volume(0.1)
 
 window.addEventListener("load", (event)=>{
-	let confirm = document.querySelector(".confirm");
+	let confirm = document.querySelector(".notify");
+  let preloader = document.querySelector(".container")
 	confirm.classList.remove("hidden");
+  preloader.classList.add("hidden");
 
 
 })

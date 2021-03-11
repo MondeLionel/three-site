@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>The Story Begins</title>
+	<link rel="stylesheet" href="css/anim.css">
 	<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/responsive.css">
@@ -10,15 +11,28 @@
 
 </head>
 <body class="loading">
+
 	<div class="loader">
-		<div class="vagrant">
-			<h2>BORZOI</h2>
+
+		<div class="container">
+			<div class="ring el-1"></div>
+			<div class="ring el-2"></div>
+			<div class="ring el-3"></div>
+			<div class="ring el-4"></div>
+			<div class="ring el-5"></div>
+			<div class="ring el-6"></div>
+			<div class="ring el-7"></div>
+			<div class="ring el-8"></div>
+			<div class="ring el-9"></div>
+			
 		</div>
-		<h1>This site has music/sound. Continue?</h1>
-		<div class="confirm hidden">
+		<div class="notify hidden">	
+		<p>This site has music/sound. Continue?</p>
+		<div class="confirm">
 			<a href="#" class="button" id="loaded">Begin</a>
 			<a href="#" class="button" id="reject">Nope</a>
 		</div>
+	</div>
 		
 	</div>
  <canvas id="cnv"></canvas>

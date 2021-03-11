@@ -45,6 +45,8 @@ a:hover{
 }
 
 
+
+
 .loader{
 	transform: translateX(100%);
 	transition: transform 0.5s 0.5s ease-out;
@@ -166,3 +168,5 @@ header a:focus{
 @media screen (max-width: 320){
    		*{}
 	}
+
+	
